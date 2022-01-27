@@ -79,62 +79,7 @@
 				</div>
 			</div>
 		</div>
-
-	<script>
-	$('#addContactForm').submit(function() {
-		$.post(
-		'handler.php',
-		$('#addContactForm').serialize(),		
-		function(msg) {
-			$('#contact-list').append(msg);
-			$('#addClose').click();
-			$('#addContactForm').trigger('reset');
-		}
-		)
-		.fail(function(msg) {
-    	alert('Ошибка записи. Пожалуйста, обратитесь к администратору.');
-		});
-		return false;
-	});
-	
-	$('#editContactForm').submit(function() {
-		$.post(
-		'handler.php',
-		$('#editContactForm').serialize(),		
-		function(msg) {
-			id = $('#idField').val();
-			$('.contact-list__row[data-id="' + id + '"]').replaceWith(msg);
-			$('#editClose').click();
-			$('#editContactForm').trigger('reset');
-		}
-		)
-		.fail(function(msg) {
-    	alert('Ошибка записи. Пожалуйста, обратитесь к администратору.');
-		});;
-		return false;
-	});
-
-	function fill_form(id) {
-		$('#editNameField').val($('.contact-list__row[data-id="' + id + '"] .contact-list__name').html());
-		$('#editPhoneField').val($('.contact-list__row[data-id="' + id + '"] .contact-list__phone').html());
-		$('#editRoleField').val($('.contact-list__row[data-id="' + id + '"] .contact-list__role').html());
-		$('#idField').val(id);
-	}
-
-	function remove_row(id) {
-		$.ajax({
-			method: "POST",
-			url: "delete.php",
-			data: { id: id }
-			})
-  		.done(function(msg) {
-			$('.contact-list__row[data-id=' + id + ']').remove();
-  		})
-		.fail(function(msg) {
-    	alert('Ошибка удаления. Пожалуйста, обратитесь к администратору.');
-		});;
-	};
-   	</script>
+	<script src="script.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 	</body>
