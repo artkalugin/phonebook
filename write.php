@@ -1,6 +1,5 @@
 <?php
 require_once('Contact.php');
-ini_set('display_errors', '1');
 
 if (!empty($_POST)) {
     extract($_POST);
