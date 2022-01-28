@@ -1,6 +1,6 @@
 $('#addContactForm').submit(function() {
     $.post(
-    'handler.php',
+    'write.php',
     $('#addContactForm').serialize(),		
     function(msg) {
         $('#contact-list').append(msg);
@@ -16,7 +16,7 @@ $('#addContactForm').submit(function() {
 
 $('#editContactForm').submit(function() {
     $.post(
-    'handler.php',
+    'write.php',
     $('#editContactForm').serialize(),		
     function(msg) {
         id = $('#idField').val();
