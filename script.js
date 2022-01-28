@@ -41,10 +41,10 @@ function fill_form(id) {
 function remove_row(id) {
     $.ajax({
         method: "POST",
-        url: "delete.php",
+        url: 'delete.php',
         data: { id: id }
         })
-      .done(function(msg) {
+    .done(function(msg) {
         $('.contact-list__row[data-id=' + id + ']').remove();
       })
     .fail(function(msg) {
